@@ -27,11 +27,7 @@ stock GetVehicleFreeSeat(vehicleid)
 	foreach(new p: Player)
 	{
 		if(IsPlayerInVehicle(p, vehicleid))
-		{
-			seat = GetPlayerVehicleSeat(p);
-			if(seat != 128)
-				seats{seat} = true;
-		}
+			seats{GetPlayerVehicleSeat(p)} = true;
 	}
 	#else
 	for(new p = GetPlayerPoolSize(); p != -1; p--)
