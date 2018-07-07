@@ -3,10 +3,6 @@
 *							  by #Samurai aka Un[x]pected
 */
 
-#if !defined IsValidVehicle
-    native IsValidVehicle(vehicleid);
-#endif
-
 new MaxSeats[212] =
 {
 	4,2,2,2,4,4,1,2,2,4,2,2,2,4,2,2,4,2,4,2,4,4,2,2,2,1,4,4,4,2,1,9,1,2,2,1,2,9,4,2,
