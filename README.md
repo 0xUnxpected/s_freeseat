@@ -18,11 +18,12 @@ GetVehicleFreeSeat(vehicleid)
 ```pawn
 CMD:freeseat(playerid)
 {
-  new veh = GetPlayerVehicleID(playerid);
-  if(!veh) return 1;
+    new veh = GetPlayerVehicleID(playerid);
+    if(!veh) return 1;
 
-  new chatStr[14];
-  format(chatStr, sizeof(chatStr), "Free seat: %i", GetVehicleFreeSeat(veh));
-  SendClientMessage(playerid, -1, chatStr);
+    new chatStr[14];
+    format(chatStr, sizeof(chatStr), "Free seat: %i", GetVehicleFreeSeat(veh));
+    SendClientMessage(playerid, -1, chatStr);
+    return 1;
 }
 ```
