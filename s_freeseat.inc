@@ -15,8 +15,9 @@ new MaxSeats[212] =
 
 stock GetVehicleFreeSeat(vehicleid)
 {
-	if(!GetVehicleModel(vehicleid)) return -1;
-	new maxSeats = MaxSeats[GetVehicleModel(vehicleid) - 400];
+	new model = GetVehicleModel(vehicleid);
+	if(!model) return -1;
+	new maxSeats = MaxSeats[model - 400];
 	new bool:seats[9 char], seat;
 
 	#if defined _foreach_included
