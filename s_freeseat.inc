@@ -21,19 +21,31 @@ stock GetVehicleFreeSeat(vehicleid)
 {
 	if(!IsValidVehicle(vehicleid)) return -1;
 	new maxSeats = MaxSeats[GetVehicleModel(vehicleid) - 400];
-	new bool:seats[9];
+	new bool:seats[9 char], seat;
 
 	#if defined _foreach_included
 	foreach(new p: Player)
+	{
 		if(IsPlayerInVehicle(p, vehicleid))
-			seats[GetPlayerVehicleSeat(p)] = true;
+		{
+			seat = GetPlayerVehicleSeat(p);
+			if(seat != 128)
+				seats{seat} = true;
+		}
+	}
 	#else
-		for(new p = GetPlayerPoolSize(); p != -1; p--)
-			if(IsPlayerInVehicle(p, vehicleid))
-				seats[GetPlayerVehicleSeat(p)] = true;
+	for(new p = GetPlayerPoolSize(); p != -1; p--)
+	{
+		if(IsPlayerInVehicle(p, vehicleid))
+		{
+			seat = GetPlayerVehicleSeat(p);
+			if(seat != 128)
+				seats{seat} = true;
+		}
+	}
 	#endif
 
 	for(new i = 0; i < maxSeats; i++)
-		if(seats[i] == false) return i;
+		if(seats{i} == false) return i;
 	return -1;
 }
