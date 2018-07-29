@@ -18,7 +18,7 @@ stock GetVehicleFreeSeat(vehicleid)
 	new model = GetVehicleModel(vehicleid);
 	if(!model) return -1;
 	new maxSeats = MaxSeats[model - 400];
-	new bool:seats[9 char], seat;
+	new bool:seats[9 char];
 
 	#if defined _foreach_included
 	foreach(new p: Player)
